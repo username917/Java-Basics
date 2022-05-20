@@ -8,7 +8,7 @@ public class HelloWorld {
 
 		/*
 		 * 
-		 * Created by: Georgi Ivanov
+		 * Created by: username917
 		 * Date of creation: May 13, 2022
 		 * Copyright and use rights
 		 * 
