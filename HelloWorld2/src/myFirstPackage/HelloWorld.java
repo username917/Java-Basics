@@ -34,11 +34,15 @@ public class HelloWorld {
 		dataEntry.DayDate();
 		
 		ConditionsLoops examples = new ConditionsLoops();
-			
-				
-		
-		
-		
+		  
+		exampleLoops.LoopMe();
+		 
+
+		Arrays arrExample = new Arrays();
+	
+		arrExample.myArrayMethod();
+		arrExample.my2DArray();
+		arrExample.inputArray();
 		
 	}
 
