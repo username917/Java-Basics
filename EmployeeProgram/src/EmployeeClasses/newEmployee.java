@@ -11,8 +11,8 @@ public class newEmployee {
 		 * How does it work 
 		 * 
 		 * 1. Set up your main Employee class and then two PT and FT employee classes that will inherit it
-		 * 2. Use the"estends" keywrod in the class statement to give the derived classes access to the superclass
-		 * 3. We declare the employee ArrayList colleciton and a set of variables with class scope to hold input information
+		 * 2. Use the"extends" keyword in the class statement to give the derived classes access to the superclass
+		 * 3. We declare the employee ArrayList collection and a set of variables with class scope to hold input information
 		 * 4. Use our traditional while-loop with an invalid input checker to prevent it executing endlessly.
 		 * 5. Create an input option for FT or PT
 		 * 6. Create a conditional to evaluate each choice
@@ -26,7 +26,7 @@ public class newEmployee {
 		 * 
 		 * BACK IN THIS CLASS:
 		 * 
-		 * 1. Using your employee type object, implmenent the "set" methods for them and pass into them the input values
+		 * 1. Using your employee type object, implement the "set" methods for them and pass into them the input values
 		 * 2. Remember, because the classes are derived, they also have access to the members and methods of the Employee class.
 		 * 
 		 * IMPLEMENTING GET EARNINGS
@@ -35,7 +35,7 @@ public class newEmployee {
 		 * 2. The problem, as I mentioned in the video, is this:
 		 * 		- How do we get the ArryList object, arrEmp, which is of type Employee, to access the details of the _
 		 * 		  derived classes, which exist only in them?
-		 * 		- The answe is that we use abstrace methods and overriding.
+		 * 		- The answer is that we use abstract methods and overriding.
 		 * 3. In your Employee class, create an abstract method for getEarnings()
 		 * 4. Make sure that you include the abstract keyword in the class signature.
 		 * 5. Then, implement the getEarnings() method in the full time and part time employee derives classes with their specifics
@@ -47,8 +47,8 @@ public class newEmployee {
 		 * 2. Set up a "totalEarned" variable in each of your derived classes and give it a getter and setter.
 		 * 3. When you get the input value from calculating the total earnings, send "earn' to the "settotalEarned(int total)" _
 		 * 	  method in the derived class
-		 * 4. MAKE SURE to add each part time or full time employeeo object to your arrayList collection. 
-		 * 5. When printing out the employee details, you will now be able to access the total earnings.
+		 * 4. MAKE SURE to add each part time or full time employee object to your arrayList collection. 
+		 * 5. When printing out the employee details, you will now be able to access the total earnings.na
 		 */
 		
 		ArrayList<Employee> arrEmp = new ArrayList<Employee>();
