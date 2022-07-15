@@ -4,6 +4,7 @@ public abstract class Employee {
 	
 	String name;
 	int age;
+	public Vehicle v;
 	
 	public String getName() {
 		return name;
