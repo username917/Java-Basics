@@ -1,5 +1,7 @@
 package EmployeeClasses;
 
+import java.util.Objects;
+
 public class empPT extends Employee{
 	
 	int hours = 0;
