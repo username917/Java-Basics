@@ -17,7 +17,11 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
+	@Override
+	public void printMyData() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
