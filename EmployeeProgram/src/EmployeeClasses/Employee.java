@@ -4,7 +4,8 @@ public abstract class Employee {
 	
 	String name;
 	int age;
-	public Vehicle v;
+	public Car c = new Car();
+	public Motorcycle m = new Motorcycle();;
 	
 	public String getName() {
 		return name;
@@ -21,11 +22,4 @@ public abstract class Employee {
 	
 	public abstract int getEarnings();
 	
-	public void printMyData() {
-		
-		
-		
-	}
-	
-
 }
