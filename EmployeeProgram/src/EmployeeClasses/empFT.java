@@ -33,6 +33,15 @@ public class empFT extends Employee{
 	
 	public void printMyData() {
 		
+		System.out.println("Name: " + this.name);
+		System.out.println("Age: " + this.age);
+		System.out.println("Earnings: " + this.earn);
+		
+		if(m.brandWheels.equals("")) {
+			c.printMyData();
+		} else {
+			m.printMyData();
+		}
 		
 	}
 }
