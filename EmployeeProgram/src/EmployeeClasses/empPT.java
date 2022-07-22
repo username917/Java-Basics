@@ -30,5 +30,22 @@ public class empPT extends Employee{
 		return rate * hours;
 		
 	}
+	
+	@Override
+	public void printMyData() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Name: " + this.name);
+		System.out.println("Age: " + this.age);
+		System.out.println("Earnigs: " + this.earn);
+		
+		System.out.println(Objects.nonNull(m.brandWheels));
+		if(m.brandWheels.equals("")) {
+			c.printMyData();
+		} else {
+			m.printMyData();
+		}
+		
+	}
 
 }
