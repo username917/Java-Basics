@@ -61,7 +61,10 @@ public class newEmployee {
 		int sal =0;
 		int bonus =0;
 		int age =0;
-	
+		
+		//taking these out to test if the employee needs to have a car or a motorcycle
+		String brandEngine = "";
+		String brandWheels = "";
 		
 		while(empName != "na") {
 		
@@ -84,23 +87,54 @@ public class newEmployee {
 			//the employee has a vehicle
 			if(optV == 1) {
 				
-				System.out.println("Enter the vehicle make: ");
-				String make = sc.next();
+				//now we need to ask whether the vehicle is a car or a motorcycle
+				System.out.println("Is the vehicle a car or a motorcycle? 1 - CAR, 0 - MOTORCYCLE");;
+				int optTypeV = sc.nextInt();
 				
+				if(optTypeV == 1) {
+					
+					System.out.println("Enter the vehicle make: ");
+					String make = sc.next();
+					
+					System.out.println("Enter the vehicle model: ");
+					String model = sc.next();
+					
+					System.out.println("Enter the engine brand: ");
+					brandEngine = sc.next();
+					
+					c1.setMake(make);
+					c1.setModel(model);
+					c1.setBrandEngine(brandEngine);
+
+				}
+				else if (optTypeV == 0) {
 				
-				System.out.println("Enter the vehicle model: ");
-				String model = sc.next();
+					System.out.println("Enter the vehicle make: ");
+					String make = sc.next();
+					
+					System.out.println("Enter the vehicle model: ");
+					String model = sc.next();
+					
+					System.out.println("Enter the wheel brand: ");
+					brandWheels = sc.next();
+					
+					m1.setMake(make);
+					m1.setModel(model);
+					m1.setBrandWheels(brandWheels);
 				
-				v1.setMake(make);
-				v1.setModel(model);
+				}
 				
 			//the employee does not have a vehicle	
 			} else if (optV == 0) {
 				
-				v1.setMake("");
-				v1.setModel("");
+				c1.setMake("");
+				c1.setModel("");
+				c1.setBrandEngine("");
 				
-				
+				m1.setMake("");
+				m1.setModel("");
+				m1.setBrandWheels("");
+
 			}
 			
 			System.out.println("Enter PT or FT = 0 for PT, 1 for FT: ");
@@ -120,14 +154,19 @@ public class newEmployee {
 				newPTemp.setAge(age);
 				newPTemp.setHours(hours);
 				newPTemp.setRate(rate);
-				newPTemp.v = v1;
-	
-				
+			
 				earn = newPTemp.getEarnings();
 				
 				newPTemp.setEarn(earn);
 				
 				newPTemp.getEarnings();
+				
+				//test if the wheel brand is nothing, and if so, add a car, else, add a motorcycle to the employee
+				if(brandWheels == "") {
+					newPTemp.c = c1;
+				} else {
+					newPTemp.m = m1;
+				}
 				
 				arrEmp.add(newPTemp);
 				//add to array
@@ -146,7 +185,14 @@ public class newEmployee {
 				newFTemp.setAge(age);
 				newFTemp.setSalary(sal);
 				newFTemp.setBonus(bonus);
-				newFTemp.v = v1;
+				
+				n//test if the wheel brand is nothing, and if so, add a car, else, add a motorcycle to the employee
+				if(brandWheels == "") {
+					newFTemp.c = c1;
+				} else {
+					newFTemp.m = m1;
+				}
+				
 				
 				earn = newFTemp.getEarnings();
 				newFTemp.setEarn(earn);
@@ -159,7 +205,9 @@ public class newEmployee {
 		}
 		
 		for(int i=0;i<arrEmp.size();i++) {
-			System.out.println(arrEmp.get(i).name + " " + arrEmp.get(i).age + " " + arrEmp.get(i).getEarnings() + " " + arrEmp.get(i).v.make + " " + arrEmp.get(i).v.model);
+			
+			arrEmp.get(i).printMyData();
+			//System.out.println(arrEmp.get(i).name + " " + arrEmp.get(i).age + " " + arrEmp.get(i).getEarnings() + " " + arrEmp.get(i).v.make + " " + arrEmp.get(i).v.model);
 		}
 		
 	}
