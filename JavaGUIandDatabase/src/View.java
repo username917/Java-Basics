@@ -111,6 +111,12 @@ public class View {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+//				ArrayList<String> week = new ArrayList<String>();
+//				week.add("Monday");
+//				week.add("Tuesday");
+//			
+//				list.setListData(week.toArray());
+				
 				Read readMe = new Read();
 				
 				readMe.readData();
