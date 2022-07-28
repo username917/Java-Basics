@@ -28,7 +28,7 @@ public class Read extends View {
 
 			Statement stmt = con.createStatement();
 
-			ResultSet rs = stmt.executeQuery("Select * from dvd_collection");
+			ResultSet rs = stmt.executeQuery("Select * from dvd_collection.movies");
 
 			ArrayList<String> movies = new ArrayList<String>();
 
