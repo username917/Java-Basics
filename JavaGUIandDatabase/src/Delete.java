@@ -24,7 +24,7 @@ public class Delete {
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dvd_collection","root","password");
 			
-			PreparedStatement prepStmt = con.prepareStatement("Delete from dvd_collection.dvd_collection Where movie_id=?");
+			PreparedStatement prepStmt = con.prepareStatement("Delete from dvd_collection.movies Where movie_id=?");
 			
 			prepStmt.setInt(1, Integer.parseInt(idx));
 			
