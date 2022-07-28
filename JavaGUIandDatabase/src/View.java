@@ -8,10 +8,16 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
@@ -27,6 +33,7 @@ public class View {
 	private JTextField txtDelIndex;
 	
 	JList list = new JList();
+
 
 	/**
 	 * Launch the application.
@@ -78,6 +85,8 @@ public class View {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				
+				
 				Create makeMe = new Create();
 				
 				makeMe.setIdx(txtIndex.getText());
@@ -111,15 +120,58 @@ public class View {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
 //				ArrayList<String> week = new ArrayList<String>();
 //				week.add("Monday");
 //				week.add("Tuesday");
 //			
 //				list.setListData(week.toArray());
 				
+				//this request will print out the database in the console
 				Read readMe = new Read();
-				
+				  
 				readMe.readData();
+				 
+				//this part will print out the database content into the list JList component
+				try {		
+					Class.forName("com.mysql.cj.jdbc.Driver");
+	
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dvd_collection", "root",
+							"password");
+	
+					Statement stmt = con.createStatement();
+	
+					ResultSet rs = stmt.executeQuery("Select * from dvd_collection.movies");
+	
+					ArrayList<String> movieList = new ArrayList<String>();
+				
+					String text = "";
+					while (rs.next()) {
+						
+						text = rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3);
+						movieList.add(text);
+	
+					}
+					con.close();
+					
+					
+					//create a default list model to update the content of the JList element
+					DefaultListModel model = new DefaultListModel();
+						  
+					for (int i = 0; i< movieList.size(); i++) {
+					
+							model.addElement(movieList.get(i)); 
+					}
+			  
+			        list.setModel(model);
+
+				} catch (Exception e1) {
+	
+					System.out.println("Connection lost");
+	
+				}
+				
+
 			}
 		});
 		btnNewButton_1.setBounds(414, 40, 103, 21);
@@ -208,8 +260,9 @@ public class View {
 		frame.getContentPane().add(lblIndex_1);
 		
 		
-		list.setBounds(383, 71, 155, 67);
+		list.setBounds(402, 77, 154, 57);
 		frame.getContentPane().add(list);
+		
 		
 		txtDelIndex = new JTextField();
 		txtDelIndex.setBounds(440, 170, 96, 19);
@@ -219,5 +272,9 @@ public class View {
 		JLabel lblNewLabel_6 = new JLabel("Index");
 		lblNewLabel_6.setBounds(385, 173, 45, 13);
 		frame.getContentPane().add(lblNewLabel_6);
+
+		
+		
+
 	}
 }
