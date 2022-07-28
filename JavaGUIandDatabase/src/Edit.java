@@ -41,7 +41,7 @@ public class Edit extends View {
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dvd_collection","root","password");
 			
-			String query = "update dvd_collection.dvd_collection set title=?, release_date=? where movie_id=? ";
+			String query = "update dvd_collection.movies set title=?, release_date=? where movie_id=? ";
 			
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1,  title);
