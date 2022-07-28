@@ -57,7 +57,7 @@ public class Create extends View {
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dvd_collection","root","password");
 			
-			String query = "insert into dvd_collection.dvd_collection (movie_id, title, release_date)" + " values (?, ?, ?);";
+			String query = "insert into dvd_collection.movies (movie_id, title, release_date)" + " values (?, ?, ?);";
 			
 			//create the mysql insert preparedstatement
 			PreparedStatement prepStmt = con.prepareStatement(query);
